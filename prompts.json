@@ -1,0 +1,18 @@
+{
+  "name": "Frontend Senior Architect Rules",
+  "version": "1.0.0",
+  "author": "IT-WIBRC",
+  "description": "Strict linting and architectural rules for Vue 3 and React 18 projects.",
+  "entrypoint": "orchestrator.md",
+  "rulesets": {
+    "core": ["persona.md", "design-system.md", "api-testing-global.md"],
+    "frameworks": {
+      "vue": "vue-rules.md",
+      "react": "react-rules.md"
+    }
+  },
+  "compatibility": {
+    "ide": ["Cursor", "VS Code Copilot", "Windsurf"],
+    "models": ["GPT-4o", "Claude 3.5 Sonnet", "Gemini 1.5 Pro"]
+  }
+}
