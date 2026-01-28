@@ -78,3 +78,10 @@
 * **Vite Static Analysis:** You **CANNOT** use dynamic sub-folder paths in `new URL()`. Only the **filename** can be dynamic.
 * **Directory Structure:** Separate assets into `src/assets/icons/` and `src/assets/images/`.
 * **Base Components:** Use `BaseSvg` and `BaseImage` components to resolve paths using the pattern: `new URL(`../assets/icons/${props.name}.svg`, import.meta.url).href`.
+
+## 🚪 8. The "Escape Hatch" (Justified Exceptions)
+- **Rule:** Standards are 99.9% non-negotiable, but exceptions are allowed for performance edge cases or unique library integrations.
+- **Protocol for Deviating:** If you must break a rule (e.g., using a manual DOM manipulation or a specific 'any' for a broken 3rd party type):
+  1. **Comment Block:** You **MUST** include a `// @v-exception` or `// @r-exception` comment.
+  2. **Justification:** State **why** the standard was broken and **what** the risk is.
+  3. **Isolation:** Keep the non-standard code contained within a single function or component to prevent "rule-creep" across the codebase.
