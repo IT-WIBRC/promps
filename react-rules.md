@@ -66,13 +66,15 @@
 * **Isolation:** Always treat child components as black boxes; stub or mock external dependencies/hooks.
 
 ## 🚦 5. Tooling, CI & Performance
-
-* **Linter & Formatter:** Use **OXC/ESLint** for logic and **Biome/Prettier** for formatting.
-* **Git Standards:** Use **Commitlint** with conventional commit messages.
-* **Lighthouse (100):**
-* **Semantic HTML:** Use `<main>`, `<nav>`, `<header>`, `<section>` strictly.
-* **Accessibility:** Maintain **4.5:1** contrast. Ensure all icon-only buttons have `aria-label`.
-* **Performance:** Images must have `width`, `height`, and `loading="lazy"` (if below the fold).
+- **Linter & Formatter:** Use **OXC/ESLint** for logic and **Biome/Prettier** for formatting.
+- **Git Standards:** Use **Commitlint** with conventional commit messages to maintain a clean, navigable history.
+- **Lighthouse Goals (Target: 100% Across All Categories):**
+  - **Semantic HTML:** Use `<main>`, `<nav>`, `<header>`, and `<section>` strictly. Avoid "div-soup" at all costs.
+  - **Accessibility (A11y):** - Maintain a minimum **4.5:1** contrast ratio.
+    - Every icon-only button **MUST** have an `aria-label`.
+    - Every interactive element must be keyboard-navigable.
+  - **Performance:** - Images must include `width` and `height` attributes to prevent Layout Shift (CLS).
+    - Use `loading="lazy"` for all assets located below the fold.
 
 ## 📁 6. Asset Management & Vite Constraints
 
@@ -84,6 +86,6 @@
 ## 🚪 7. The "Escape Hatch" (Justified Exceptions)
 - **Rule:** Standards are 99.9% non-negotiable, but exceptions are allowed for performance edge cases or unique library integrations.
 - **Protocol for Deviating:** If you must break a rule (e.g., using a manual DOM manipulation or a specific 'any' for a broken 3rd party type):
-  1. **Comment Block:** You **MUST** include a `// @v-exception` or `// @r-exception` comment.
+  1. **Comment Block:** You **MUST** include a `// @r-exception` comment.
   2. **Justification:** State **why** the standard was broken and **what** the risk is.
   3. **Isolation:** Keep the non-standard code contained within a single function or component to prevent "rule-creep" across the codebase.
